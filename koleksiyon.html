@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koleksiyonlar - Altınyuva Kuyumculuk</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animasyon CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37', 
+                        darkbg: '#0a0a0a',
+                        cardbg: '#121212'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'], 
+                        serif: ['Cinzel', 'serif'],       
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
+        
+        .led-lines {
+            background-image: 
+                linear-gradient(to right, rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-gray-300 font-sans antialiased led-lines overflow-x-hidden">
+
+    <!-- Navigasyon (Menü) - index.html'e dönecek şekilde ayarlandı -->
+    <nav class="fixed w-full z-50 bg-darkbg/90 backdrop-blur-md border-b border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="flex items-center">
+                        <img class="h-16 drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]" src="logo.png" alt="Altınyuva Logo">
+                    </a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-12">
+                        <a href="index.html" class="hover:text-gold transition-all duration-300 px-2 py-2 text-xs uppercase tracking-[0.2em] font-medium border-b border-transparent hover:border-gold">Ana Sayfaya Dön</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sayfa Başlığı -->
+    <section class="pt-40 pb-12 text-center relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-aos="fade-down" data-aos-duration="1000">
+            <h1 class="text-4xl md:text-5xl font-serif font-bold text-white mb-4 uppercase tracking-widest">Koleksiyonlarımız</h1>
+            <div class="w-24 h-0.5 bg-gold mx-auto mb-8"></div>
+            <p class="text-gray-400 font-light tracking-wide max-w-2xl mx-auto">
+                Usta ellerde şekillenen, her zevke ve an'a hitap eden seçkin tasarımlarımız.
+            </p>
+            
+            <!-- Kategori Filtreleri (Görsel Tasarım) -->
+            <div class="flex flex-wrap justify-center gap-6 mt-12">
+                <button class="text-gold border-b border-gold px-2 py-1 text-xs uppercase tracking-[0.2em]">Tümü</button>
+                <button class="text-gray-500 hover:text-gold hover:border-gold border-b border-transparent transition-all px-2 py-1 text-xs uppercase tracking-[0.2em]">Pırlanta</button>
+                <button class="text-gray-500 hover:text-gold hover:border-gold border-b border-transparent transition-all px-2 py-1 text-xs uppercase tracking-[0.2em]">Altın Kolyeler</button>
+                <button class="text-gray-500 hover:text-gold hover:border-gold border-b border-transparent transition-all px-2 py-1 text-xs uppercase tracking-[0.2em]">Bileklikler</button>
+                <button class="text-gray-500 hover:text-gold hover:border-gold border-b border-transparent transition-all px-2 py-1 text-xs uppercase tracking-[0.2em]">Alyanslar</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ürün Grid Alanı -->
+    <section class="py-12 bg-transparent relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- 4 Sütunlu Grid Yapısı -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                
+                <!-- Ürün 1 -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0" class="group bg-cardbg border border-gray-900 hover:border-gold/50 transition-all duration-500">
+                    <div class="aspect-[3/4] bg-black relative overflow-hidden">
+                        <img src="https://picsum.photos/600/800?random=1" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700" alt="Ürün">
+                        <div class="absolute inset-0 bg-darkbg/20 group-hover:bg-darkbg/0 transition-colors"></div>
+                    </div>
+                    <div class="p-6 text-center border-t border-gray-900">
+                        <h3 class="text-lg font-serif text-white mb-2">Pırlanta Baget Yüzük</h3>
+                        <p class="text-gray-500 text-xs font-light uppercase tracking-widest mb-4">Pırlanta Koleksiyonu</p>
+                        <a href="#" class="text-gold text-xs border border-gold px-4 py-2 uppercase tracking-widest hover:bg-gold hover:text-black transition-colors">İncele</a>
+                    </div>
+                </div>
+
+                <!-- Ürün 2 -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100" class="group bg-cardbg border border-gray-900 hover:border-gold/50 transition-all duration-500">
+                    <div class="aspect-[3/4] bg-black relative overflow-hidden">
+                        <img src="https://picsum.photos/600/800?random=2" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700" alt="Ürün">
+                        <div class="absolute inset-0 bg-darkbg/20 group-hover:bg-darkbg/0 transition-colors"></div>
+                    </div>
+                    <div class="p-6 text-center border-t border-gray-900">
+                        <h3 class="text-lg font-serif text-white mb-2">Zümrüt Damla Kolye</h3>
+                        <p class="text-gray-500 text-xs font-light uppercase tracking-widest mb-4">Özel Tasarım</p>
+                        <a href="#" class="text-gold text-xs border border-gold px-4 py-2 uppercase tracking-widest hover:bg-gold hover:text-black transition-colors">İncele</a>
+                    </div>
+                </div>
+
+                <!-- Ürün 3 -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="group bg-cardbg border border-gray-900 hover:border-gold/50 transition-all duration-500">
+                    <div class="aspect-[3/4] bg-black relative overflow-hidden">
+                        <img src="https://picsum.photos/600/800?random=3" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700" alt="Ürün">
+                        <div class="absolute inset-0 bg-darkbg/20 group-hover:bg-darkbg/0 transition-colors"></div>
+                    </div>
+                    <div class="p-6 text-center border-t border-gray-900">
+                        <h3 class="text-lg font-serif text-white mb-2">Su Yolu Bileklik</h3>
+                        <p class="text-gray-500 text-xs font-light uppercase tracking-widest mb-4">Altın Koleksiyonu</p>
+                        <a href="#" class="text-gold text-xs border border-gold px-4 py-2 uppercase tracking-widest hover:bg-gold hover:text-black transition-colors">İncele</a>
+                    </div>
+                </div>
+
+                <!-- Ürün 4 -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300" class="group bg-cardbg border border-gray-900 hover:border-gold/50 transition-all duration-500">
+                    <div class="aspect-[3/4] bg-black relative overflow-hidden">
+                        <img src="https://picsum.photos/600/800?random=4" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700" alt="Ürün">
+                        <div class="absolute inset-0 bg-darkbg/20 group-hover:bg-darkbg/0 transition-colors"></div>
+                    </div>
+                    <div class="p-6 text-center border-t border-gray-900">
+                        <h3 class="text-lg font-serif text-white mb-2">Tektaş Pırlanta</h3>
+                        <p class="text-gray-500 text-xs font-light uppercase tracking-widest mb-4">Evlilik & Nişan</p>
+                        <a href="#" class="text-gold text-xs border border-gold px-4 py-2 uppercase tracking-widest hover:bg-gold hover:text-black transition-colors">İncele</a>
+                    </div>
+                </div>
+                
+                <!-- Ürün 5 -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="0" class="group bg-cardbg border border-gray-900 hover:border-gold/50 transition-all duration-500">
+                    <div class="aspect-[3/4] bg-black relative overflow-hidden">
+                        <img src="https://picsum.photos/600/800?random=5" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700" alt="Ürün">
+                        <div class="absolute inset-0 bg-darkbg/20 group-hover:bg-darkbg/0 transition-colors"></div>
+                    </div>
+                    <div class="p-6 text-center border-t border-gray-900">
+                        <h3 class="text-lg font-serif text-white mb-2">Safir Saf Yüzük</h3>
+                        <p class="text-gray-500 text-xs font-light uppercase tracking-widest mb-4">Özel Tasarım</p>
+                        <a href="#" class="text-gold text-xs border border-gold px-4 py-2 uppercase tracking-widest hover:bg-gold hover:text-black transition-colors">İncele</a>
+                    </div>
+                </div>
+
+                <!-- Ürün 6 -->
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100" class="group bg-cardbg border border-gray-900 hover:border-gold/50 transition-all duration-500">
+                    <div class="aspect-[3/4] bg-black relative overflow-hidden">
+                        <img src="https://picsum.photos/600/800?random=6" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700" alt="Ürün">
+                        <div class="absolute inset-0 bg-darkbg/20 group-hover:bg-darkbg/0 transition-colors"></div>
+                    </div>
+                    <div class="p-6 text-center border-t border-gray-900">
+                        <h3 class="text-lg font-serif text-white mb-2">22 Ayar Kaburga</h3>
+                        <p class="text-gray-500 text-xs font-light uppercase tracking-widest mb-4">Altın Koleksiyonu</p>
+                        <a href="#" class="text-gold text-xs border border-gold px-4 py-2 uppercase tracking-widest hover:bg-gold hover:text-black transition-colors">İncele</a>
+                    </div>
+                </div>
+                
+                 <!-- Ürün 7 -->
+                 <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200" class="group bg-cardbg border border-gray-900 hover:border-gold/50 transition-all duration-500">
+                    <div class="aspect-[3/4] bg-black relative overflow-hidden">
+                        <img src="https://picsum.photos/600/800?random=7" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700" alt="Ürün">
+                        <div class="absolute inset-0 bg-darkbg/20 group-hover:bg-darkbg/0 transition-colors"></div>
+                    </div>
+                    <div class="p-6 text-center border-t border-gray-900">
+                        <h3 class="text-lg font-serif text-white mb-2">Klasik Alyans</h3>
+                        <p class="text-gray-500 text-xs font-light uppercase tracking-widest mb-4">Evlilik & Nişan</p>
+                        <a href="#" class="text-gold text-xs border border-gold px-4 py-2 uppercase tracking-widest hover:bg-gold hover:text-black transition-colors">İncele</a>
+                    </div>
+                </div>
+                
+                 <!-- Ürün 8 -->
+                 <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300" class="group bg-cardbg border border-gray-900 hover:border-gold/50 transition-all duration-500">
+                    <div class="aspect-[3/4] bg-black relative overflow-hidden">
+                        <img src="https://picsum.photos/600/800?random=8" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700" alt="Ürün">
+                        <div class="absolute inset-0 bg-darkbg/20 group-hover:bg-darkbg/0 transition-colors"></div>
+                    </div>
+                    <div class="p-6 text-center border-t border-gray-900">
+                        <h3 class="text-lg font-serif text-white mb-2">Altın İncili Küpe</h3>
+                        <p class="text-gray-500 text-xs font-light uppercase tracking-widest mb-4">Altın Koleksiyonu</p>
+                        <a href="#" class="text-gold text-xs border border-gold px-4 py-2 uppercase tracking-widest hover:bg-gold hover:text-black transition-colors">İncele</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darkbg border-t border-gray-900 py-12 text-center relative z-10 mt-12">
+        <img class="h-16 mx-auto mb-6 opacity-80" src="logo.png" alt="Altınyuva Alt Logo">
+        <p class="text-gray-600 text-xs tracking-wider font-light">&copy; 2026 ALTINYUVA KUYUMCULUK. TÜM HAKLARI SAKLIDIR.</p>
+    </footer>
+
+    <!-- AOS Animasyon JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50, easing: 'ease-out-cubic' });
+    </script>
+</body>
+</html>

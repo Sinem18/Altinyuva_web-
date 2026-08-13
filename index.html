@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Altınyuva Kuyumculuk - Lüks ve Zarafet</title>
+    
+    <!-- Google Fonts: Lüks başlıklar için Cinzel, modern metinler için Montserrat -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animasyon Kütüphanesi CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37', 
+                        darkbg: '#0a0a0a',
+                        cardbg: '#121212'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'], // Gövde metni
+                        serif: ['Cinzel', 'serif'],       // Başlıklar
+                    },
+                    animation: {
+                        'slow-pulse': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Siyah/Altın Minimalist Kaydırma Çubuğu */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
+        
+        /* Arka plan LED çizgileri efekti */
+        .led-lines {
+            background-image: 
+                linear-gradient(to right, rgba(212, 175, 55, 0.07) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-gray-300 font-sans antialiased led-lines overflow-x-hidden">
+
+    <!-- Navigasyon (Menü) -->
+    <nav class="fixed w-full z-50 bg-darkbg/90 backdrop-blur-md border-b border-gray-900 transition-all duration-300" data-aos="fade-down" data-aos-duration="800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <!-- Logo Kısmı -->
+                <div class="flex-shrink-0 animate-float">
+                    <a href="#" class="flex items-center">
+                        <img class="h-16 drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]" src="logo.png" alt="Altınyuva Logo">
+                    </a>
+                </div>
+                <!-- Linkler -->
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-12">
+                        <a href="#anasayfa" class="hover:text-gold transition-all duration-300 px-2 py-2 text-xs uppercase tracking-[0.2em] font-medium border-b border-transparent hover:border-gold">Ana Sayfa</a>
+                        <a href="#hakkimizda" class="hover:text-gold transition-all duration-300 px-2 py-2 text-xs uppercase tracking-[0.2em] font-medium border-b border-transparent hover:border-gold">Hakkımızda</a>
+                        <a href="#urunler" class="hover:text-gold transition-all duration-300 px-2 py-2 text-xs uppercase tracking-[0.2em] font-medium border-b border-transparent hover:border-gold">Ürünler</a>
+                        <a href="#iletisim" class="hover:text-gold transition-all duration-300 px-2 py-2 text-xs uppercase tracking-[0.2em] font-medium border-b border-transparent hover:border-gold">İletişim</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Ana Sayfa (Hero Bölümü) -->
+    <section id="anasayfa" class="pt-24 pb-12 flex items-center justify-center min-h-screen relative overflow-hidden">
+        <!-- Arka plan -->
+        <div class="absolute inset-0 z-0">
+            <img src="vitrin_kahraman.jpg" class="w-full h-full object-cover opacity-25 scale-105 transform origin-center transition-transform duration-[10000ms] hover:scale-100" alt="Altınyuva Vitrin">
+            <div class="absolute inset-0 bg-gradient-to-b from-darkbg/60 via-darkbg/80 to-darkbg"></div>
+        </div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto">
+            <div data-aos="zoom-in" data-aos-duration="1500" class="inline-block p-4 mb-8 relative">
+                <div class="absolute inset-0 border border-gold/50 animate-slow-pulse"></div>
+                <img class="h-32 mx-auto relative z-10" src="logo.png" alt="Altınyuva Merkez Logo">
+            </div>
+            
+            <h1 data-aos="fade-up" data-aos-duration="1200" data-aos-delay="300" class="text-5xl md:text-7xl font-serif text-white mb-6 tracking-wide leading-tight">
+                Zarafetin <span class="text-gold font-bold">Altın</span> Çağı
+            </h1>
+            
+            <p data-aos="fade-up" data-aos-duration="1200" data-aos-delay="500" class="text-lg md:text-xl text-gray-400 mb-12 font-light max-w-2xl mx-auto leading-relaxed tracking-wide">
+                Modern çizgiler, değerli taşlar ve geleneksel işçiliğin kusursuz uyumu.
+            </p>
+            
+            <div data-aos="fade-up" data-aos-duration="1200" data-aos-delay="700">
+                <a href="koleksiyon.html" class="inline-block border border-gold text-gold hover:bg-gold hover:text-black transition-all duration-500 px-10 py-4 uppercase tracking-[0.2em] text-xs font-semibold overflow-hidden relative group">
+                    <span class="relative z-10">Koleksiyonu Keşfet</span>
+                    <div class="absolute inset-0 h-full w-full bg-gold transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hakkımızda Bölümü -->
+    <section id="hakkimizda" class="py-32 bg-cardbg overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+                <div class="space-y-8" data-aos="fade-right" data-aos-duration="1200">
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold text-white uppercase tracking-wider">Hikayemiz</h2>
+                    <div class="w-24 h-0.5 bg-gold"></div>
+                    <p class="text-base text-gray-400 leading-loose font-light">
+                        Yılların getirdiği tecrübe ve güvenle, kaliteyi ve şıklığı bir araya getiriyoruz. Her bir mücevherimiz, kendi atölyelerimizde usta eller tarafından titizlikle işlenir.
+                    </p>
+                    <p class="text-base text-gray-400 leading-loose font-light">
+                        Müşteri memnuniyetini merkezimize alarak, en özel anlarınızı paha biçilemez hatıralara dönüştürüyoruz.
+                    </p>
+                </div>
+                
+                <div data-aos="fade-left" data-aos-duration="1200" class="relative h-[500px] bg-darkbg p-3 group">
+                    <div class="absolute inset-0 border border-gold/30 group-hover:border-gold/80 transition-colors duration-700"></div>
+                    <div class="w-full h-full overflow-hidden relative">
+                        <img src="magaza_ic.jpg" alt="Dükkan İç Mekan" class="w-full h-full object-cover transform scale-105 group-hover:scale-110 transition-transform duration-[2000ms]">
+                        <div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors duration-700"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ürünler Bölümü -->
+    <!-- Ürünler Bölümü -->
+    <section id="urunler" class="py-32 bg-darkbg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6 uppercase tracking-wider">Öne Çıkanlar</h2>
+                <div class="w-24 h-0.5 bg-gold mx-auto mb-24"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                
+                <!-- Ürün Kartı 1 -->
+                <a href="koleksiyon.html" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100" class="block group bg-cardbg border border-gray-900 hover:border-gold/50 transition-colors duration-500 cursor-pointer">
+                    <div class="h-96 bg-black relative overflow-hidden">
+                        <!-- Yandex'ten aldığın ürün fotoları buraya -->
+                        <!-- <img src="urun1.jpg" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700"> -->
+                        <div class="absolute inset-0 bg-darkbg/40 group-hover:bg-darkbg/0 transition-colors duration-500"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <span class="border border-gold text-gold px-6 py-2 uppercase tracking-[0.15em] text-xs bg-black/50 backdrop-blur-sm">Tümünü İncele</span>
+                        </div>
+                    </div>
+                    <div class="p-8 text-center relative z-10">
+                        <h3 class="text-xl font-serif text-white mb-3 tracking-wide">Pırlanta Koleksiyonu</h3>
+                        <p class="text-gray-500 text-sm font-light">Göz alıcı ışıltı</p>
+                    </div>
+                </a>
+
+                <!-- Ürün Kartı 2 -->
+                <a href="koleksiyon.html" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300" class="block group bg-cardbg border border-gray-900 hover:border-gold/50 transition-colors duration-500 cursor-pointer">
+                    <div class="h-96 bg-black relative overflow-hidden">
+                        <!-- <img src="urun2.jpg" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700"> -->
+                        <div class="absolute inset-0 bg-darkbg/40 group-hover:bg-darkbg/0 transition-colors duration-500"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <span class="border border-gold text-gold px-6 py-2 uppercase tracking-[0.15em] text-xs bg-black/50 backdrop-blur-sm">Tümünü İncele</span>
+                        </div>
+                    </div>
+                    <div class="p-8 text-center relative z-10">
+                        <h3 class="text-xl font-serif text-white mb-3 tracking-wide">Özel Tasarım Kolyeler</h3>
+                        <p class="text-gray-500 text-sm font-light">Zarif detaylar</p>
+                    </div>
+                </a>
+
+                <!-- Ürün Kartı 3 -->
+                <a href="koleksiyon.html" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="500" class="block group bg-cardbg border border-gray-900 hover:border-gold/50 transition-colors duration-500 cursor-pointer">
+                    <div class="h-96 bg-black relative overflow-hidden">
+                        <!-- <img src="urun3.jpg" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700"> -->
+                        <div class="absolute inset-0 bg-darkbg/40 group-hover:bg-darkbg/0 transition-colors duration-500"></div>
+                        <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                            <span class="border border-gold text-gold px-6 py-2 uppercase tracking-[0.15em] text-xs bg-black/50 backdrop-blur-sm">Tümünü İncele</span>
+                        </div>
+                    </div>
+                    <div class="p-8 text-center relative z-10">
+                        <h3 class="text-xl font-serif text-white mb-3 tracking-wide">El İşçiliği Bileklikler</h3>
+                        <p class="text-gray-500 text-sm font-light">Modern dokunuşlar</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+              
+
+    <!-- İletişim Bölümü -->
+    <section id="iletisim" class="py-32 bg-cardbg relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-20" data-aos="fade-down" data-aos-duration="1000">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-white mb-6 uppercase tracking-wider">İletişim</h2>
+                <div class="w-24 h-0.5 bg-gold mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-20">
+                <!-- İletişim Bilgileri -->
+                <div class="space-y-10" data-aos="fade-right" data-aos-duration="1200">
+                    <h3 class="text-3xl text-white font-serif mb-8">Mağazamıza Bekliyoruz</h3>
+                    
+                    <div class="group flex items-start p-4 hover:bg-darkbg/50 transition-colors duration-300 border-l border-transparent hover:border-gold">
+                        <span class="text-gold text-2xl mr-6 mt-1 group-hover:scale-110 transition-transform">📍</span>
+                        <div>
+                            <p class="text-white font-medium mb-1 tracking-wide">Adres</p>
+                            <p class="text-gray-400 font-light leading-relaxed">Ankara, Türkiye<br><span class="text-xs text-gray-500">(Adresi buraya girin)</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="group flex items-start p-4 hover:bg-darkbg/50 transition-colors duration-300 border-l border-transparent hover:border-gold">
+                        <span class="text-gold text-2xl mr-6 mt-1 group-hover:scale-110 transition-transform">📞</span>
+                        <div>
+                            <p class="text-white font-medium mb-1 tracking-wide">Telefon</p>
+                            <p class="text-gray-400 font-light">+90 5XX XXX XX XX</p>
+                        </div>
+                    </div>
+                    
+                    <div class="pt-8 border-t border-gray-800">
+                        <p class="text-xs text-gold uppercase tracking-[0.2em] mb-4">Çalışma Saatleri</p>
+                        <p class="text-gray-300 font-light mb-1">Pazartesi - Cumartesi: 09:00 - 19:30</p>
+                        <p class="text-gray-500 font-light">Pazar: Kapalı</p>
+                    </div>
+                </div>
+                
+                <!-- Mesaj Formu -->
+                <form class="space-y-6 bg-darkbg/80 backdrop-blur-sm p-10 border border-gray-800 relative group" data-aos="fade-left" data-aos-duration="1200">
+                    <!-- Form süsleme çizgileri -->
+                    <div class="absolute top-0 left-0 w-8 h-8 border-t border-l border-gold/50"></div>
+                    <div class="absolute bottom-0 right-0 w-8 h-8 border-b border-r border-gold/50"></div>
+                    
+                    <div class="relative">
+                        <input type="text" placeholder="Adınız Soyadınız" class="w-full bg-transparent border-b border-gray-800 text-white px-0 py-4 focus:outline-none focus:border-gold transition-colors font-light placeholder-gray-600">
+                    </div>
+                    <div class="relative">
+                        <input type="email" placeholder="E-posta Adresiniz" class="w-full bg-transparent border-b border-gray-800 text-white px-0 py-4 focus:outline-none focus:border-gold transition-colors font-light placeholder-gray-600">
+                    </div>
+                    <div class="relative">
+                        <textarea rows="4" placeholder="Mesajınız..." class="w-full bg-transparent border-b border-gray-800 text-white px-0 py-4 focus:outline-none focus:border-gold transition-colors resize-none font-light placeholder-gray-600"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-gold text-black font-bold uppercase tracking-[0.2em] text-xs py-5 hover:bg-white hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 mt-4">
+                        Mesajı İlet
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-darkbg border-t border-gray-900 py-16 text-center relative z-10">
+        <img class="h-20 mx-auto mb-8 opacity-80" src="logo.png" alt="Altınyuva Alt Logo">
+        <div class="flex justify-center space-x-6 mb-8">
+            <!-- Sosyal Medya İkonları (Örnek) -->
+            <a href="#" class="text-gray-500 hover:text-gold transition-colors">Instagram</a>
+            <a href="#" class="text-gray-500 hover:text-gold transition-colors">Facebook</a>
+        </div>
+        <p class="text-gray-600 text-xs tracking-wider font-light">&copy; 2026 ALTINYUVA KUYUMCULUK. TÜM HAKLARI SAKLIDIR.</p>
+    </footer>
+
+    <!-- AOS Animasyon Kütüphanesi JS ve Başlatma -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true, // Animasyonlar sadece bir kez çalışsın (aşağı kaydırırken)
+            offset: 100, // Animasyonun tetiklenmesi için kaydırma mesafesi
+            easing: 'ease-out-cubic',
+        });
+    </script>
+</body>
+</html>
