@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yönetici Paneli - Altınyuva</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37', 
+                        darkbg: '#0a0a0a',
+                        cardbg: '#121212'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'], 
+                        serif: ['Cinzel', 'serif'],       
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .led-lines {
+            background-image: linear-gradient(to right, rgba(212, 175, 55, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-gray-300 font-sans antialiased led-lines min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+
+    <div class="sm:mx-auto sm:w-full sm:max-w-md text-center">
+        <a href="{{ url_for('anasayfa') }}">
+            <img class="h-16 mx-auto mb-4" src="{{ url_for('static', filename='logo.png') }}" alt="Altınyuva Logo">
+        </a>
+        <h2 class="text-3xl font-serif text-white uppercase tracking-widest">Yönetici Paneli</h2>
+        <div class="w-16 h-0.5 bg-gold mx-auto mt-4 mb-2"></div>
+        <p class="text-gray-500 text-sm">Yeni ürün girişi</p>
+    </div>
+
+    <div class="mt-8 sm:mx-auto sm:w-full sm:max-w-xl">
+        <div class="bg-cardbg py-8 px-4 border border-gray-900 shadow-2xl sm:rounded-none sm:px-10">
+            
+            <!-- Uyarı Mesajı -->
+            {% if mesaj %}
+            <div class="mb-6 p-4 border {% if 'Başarılı' in mesaj %}border-green-500 text-green-400{% else %}border-red-500 text-red-400{% endif %} text-center text-sm font-medium tracking-wider">
+                {{ mesaj }}
+            </div>
+            {% endif %}
+
+            <form class="space-y-6" action="{{ url_for('admin') }}" method="POST">
+                
+                <div>
+                    <label for="isim" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Ürün Adı</label>
+                    <input type="text" name="isim" id="isim" required class="w-full bg-darkbg border border-gray-800 text-white px-4 py-3 focus:outline-none focus:border-gold transition-colors font-light">
+                </div>
+
+                <div>
+                    <label for="kategori" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Kategori</label>
+                    <select name="kategori" id="kategori" required class="w-full bg-darkbg border border-gray-800 text-white px-4 py-3 focus:outline-none focus:border-gold transition-colors font-light appearance-none">
+                        <option value="Pırlanta">Pırlanta</option>
+                        <option value="Altın Koleksiyonu">Altın Koleksiyonu</option>
+                        <option value="Özel Tasarım">Özel Tasarım</option>
+                        <option value="Evlilik & Nişan">Evlilik & Nişan</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="materyal" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Materyal & Ayar (Örn: 18 Ayar Beyaz Altın)</label>
+                    <input type="text" name="materyal" id="materyal" required class="w-full bg-darkbg border border-gray-800 text-white px-4 py-3 focus:outline-none focus:border-gold transition-colors font-light">
+                </div>
+
+                <div>
+                    <label for="fiyat" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Fiyat (TL)</label>
+                    <input type="number" step="0.01" name="fiyat" id="fiyat" required class="w-full bg-darkbg border border-gray-800 text-white px-4 py-3 focus:outline-none focus:border-gold transition-colors font-light">
+                </div>
+
+                <div>
+                    <label for="gorsel_isim" class="block text-xs uppercase tracking-widest text-gray-400 mb-2">Görsel URL (Link)</label>
+                    <input type="text" name="gorsel_isim" id="gorsel_isim" required class="w-full bg-darkbg border border-gray-800 text-white px-4 py-3 focus:outline-none focus:border-gold transition-colors font-light">
+                </div>
+                
+                <div class="pt-6 border-t border-gray-900">
+                    <label for="sifre" class="block text-xs uppercase tracking-widest text-gold mb-2">Yönetici Şifresi</label>
+                    <input type="password" name="sifre" id="sifre" required class="w-full bg-darkbg border border-gold/50 text-white px-4 py-3 focus:outline-none focus:border-gold transition-colors font-light" placeholder="Yetki doğrulaması için şifre girin">
+                </div>
+
+                <button type="submit" class="w-full bg-gold text-black font-bold uppercase tracking-[0.2em] text-xs py-4 hover:bg-white hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300 mt-4">
+                    Sisteme Ekle
+                </button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

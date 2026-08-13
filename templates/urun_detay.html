@@ -1,0 +1,148 @@
+
+<!DOCTYPE html>
+<html lang="tr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ urun['isim'] }} - Altınyuva Kuyumculuk</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: '#D4AF37', 
+                        darkbg: '#0a0a0a',
+                        cardbg: '#121212'
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'], 
+                        serif: ['Cinzel', 'serif'],       
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0a0a0a; }
+        ::-webkit-scrollbar-thumb { background: #D4AF37; border-radius: 10px; }
+        
+        .led-lines {
+            background-image: 
+                linear-gradient(to right, rgba(212, 175, 55, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(212, 175, 55, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+    </style>
+</head>
+<body class="bg-darkbg text-gray-300 font-sans antialiased led-lines overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-darkbg/90 backdrop-blur-md border-b border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-24">
+                <div class="flex-shrink-0">
+                    <a href="{{ url_for('anasayfa') }}" class="flex items-center">
+                        <img class="h-16 drop-shadow-[0_0_15px_rgba(212,175,55,0.3)]" src="{{ url_for('static', filename='logo.png') }}" alt="Altınyuva Logo">
+                    </a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8 ml-10">
+                    <a href="{{ url_for('anasayfa') }}#anasayfa" class="hover:text-gold transition-all duration-300 px-2 py-2 text-xs uppercase tracking-[0.2em] font-medium border-b border-transparent hover:border-gold">Ana Sayfa</a>
+                    <a href="{{ url_for('koleksiyon') }}" class="hover:text-gold transition-all duration-300 px-2 py-2 text-xs uppercase tracking-[0.2em] font-medium border-b border-transparent hover:border-gold">Koleksiyonlara Dön</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Ürün Detay Bölümü -->
+    <section class="pt-40 pb-20 relative z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                
+                <!-- Sol: Ürün Görseli -->
+                <div data-aos="fade-right" data-aos-duration="1200" class="relative group bg-cardbg p-4 border border-gray-900">
+                    <div class="absolute inset-0 border border-gold/30 group-hover:border-gold transition-colors duration-700 m-2"></div>
+                    <img src="{{ urun['gorsel_isim'] }}" alt="{{ urun['isim'] }}" class="w-full h-auto object-cover relative z-10 shadow-2xl">
+                </div>
+
+                <!-- Sağ: Ürün Bilgileri -->
+                <div data-aos="fade-left" data-aos-duration="1200" class="space-y-8">
+                    <p class="text-gold text-xs uppercase tracking-[0.3em] font-medium">{{ urun['kategori'] }}</p>
+                    <h1 class="text-4xl md:text-5xl font-serif font-bold text-white leading-tight">{{ urun['isim'] }}</h1>
+                    
+                    <div class="w-16 h-0.5 bg-gold"></div>
+                    
+                    <div class="space-y-4 py-4">
+                        <div class="flex items-center text-gray-400 font-light">
+                            <span class="w-32 uppercase tracking-wider text-xs text-gray-500">Materyal:</span>
+                            <span class="text-white">{{ urun['materyal'] }}</span>
+                        </div>
+                        <div class="flex items-center text-gray-400 font-light">
+                            <span class="w-32 uppercase tracking-wider text-xs text-gray-500">Stok Kodu:</span>
+                            <span class="text-white">AYV-{{ urun['id'] }}00{{ urun['id'] }}</span>
+                        </div>
+                    </div>
+
+                    <p class="text-3xl text-white font-serif font-bold tracking-wide">{{ urun['fiyat'] }} ₺</p>
+                    
+                    <div class="pt-8 flex space-x-4">
+                        <button class="flex-1 bg-gold text-black font-bold uppercase tracking-[0.2em] text-xs py-5 hover:bg-white hover:shadow-[0_0_20px_rgba(212,175,55,0.4)] transition-all duration-300">
+                            Bilgi Al & Sipariş Ver
+                        </button>
+                    </div>
+                    <p class="text-xs text-gray-500 font-light mt-4">
+                        * Ürünlerimiz özel sipariş üzerine atölyemizde ölçünüze göre hazırlanmaktadır.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tavsiye (Ağ Analizi) Bölümü -->
+    {% if onerilenler %}
+    <section class="py-20 bg-cardbg relative z-10 border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up" data-aos-duration="1000">
+                <h2 class="text-2xl md:text-3xl font-serif font-bold text-white mb-4 uppercase tracking-widest">Bunları Da Beğenebilirsiniz</h2>
+                <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+                <p class="text-gray-500 text-sm mt-4 font-light">Tarzınıza en uygun diğer tasarımlarımız</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {% for onerilen in onerilenler %}
+                <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="{{ loop.index0 * 150 }}" class="group bg-darkbg border border-gray-900 hover:border-gold/50 transition-all duration-500 flex flex-col justify-between">
+                    <div class="aspect-[3/4] bg-black relative overflow-hidden">
+                        <img src="{{ onerilen['gorsel_isim'] }}" class="w-full h-full object-cover transform scale-100 group-hover:scale-110 transition-transform duration-700" alt="{{ onerilen['isim'] }}">
+                        <div class="absolute inset-0 bg-darkbg/20 group-hover:bg-darkbg/0 transition-colors"></div>
+                    </div>
+                    <div class="p-6 text-center border-t border-gray-900 flex-grow flex flex-col justify-end">
+                        <h3 class="text-lg font-serif text-white mb-2">{{ onerilen['isim'] }}</h3>
+                        <p class="text-gray-500 text-xs font-light uppercase tracking-widest mb-2">{{ onerilen['kategori'] }}</p>
+                        <p class="text-gold text-sm font-semibold mb-4">{{ onerilen['fiyat'] }} ₺</p>
+                        <a href="/urun/{{ onerilen['id'] }}" class="inline-block text-gold text-xs border border-gold px-4 py-2 uppercase tracking-widest hover:bg-gold hover:text-black transition-colors w-full">İncele</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <!-- Footer -->
+    <footer class="bg-darkbg border-t border-gray-900 py-12 text-center relative z-10">
+        <img class="h-16 mx-auto mb-6 opacity-80" src="{{ url_for('static', filename='logo.png') }}" alt="Altınyuva Alt Logo">
+        <p class="text-gray-600 text-xs tracking-wider font-light">&copy; 2026 ALTINYUVA KUYUMCULUK. TÜM HAKLARI SAKLIDIR.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ once: true, offset: 50, easing: 'ease-out-cubic' });
+    </script>
+</body>
+</html>
